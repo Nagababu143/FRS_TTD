@@ -1,0 +1,52 @@
+import { StyleSheet } from 'react-native';
+import { Colors } from '../../utils/Colors';
+
+export const landingStyles = StyleSheet.create({
+    container:{
+        flex:1,
+        fontFamily:'Poppins-Regular',
+    },
+    imgCont:{
+        flex:1,
+        paddingHorizontal:24,
+        display:'flex',
+        flexDirection:'column',
+        justifyContent:'space-around',
+    },
+    ttdLogo:{
+        height:74,
+        width:67,
+        alignSelf:'center',
+    },
+    scanMeText:{
+        fontSize:24,
+        color:Colors.alizarinCrimson,
+        fontWeight:'600',
+        textAlign:'center',
+    },
+    scanLogo:{
+        height:130,
+        width:130,
+        alignSelf:'center',
+        marginTop:10,
+    },
+    frText:{
+        fontSize:24,
+        color:Colors.black,
+        fontWeight:'600',
+        textAlign:'center',
+        marginTop:36,
+    },
+    frDescription:{
+        fontSize:16,
+        color:Colors.black,
+        fontWeight:'400',
+        textAlign:'center',
+        marginTop:10,
+    },
+    buttonsCont:{
+        display:'flex',
+        flexDirection:'column',
+        gap:30,
+    },
+});
