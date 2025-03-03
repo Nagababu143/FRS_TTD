@@ -5,6 +5,7 @@ import Landing from '../screens/landing/Landing';
 import { Colors } from '../utils/Colors';
 import ProfileDetails from '../screens/profile-details/ProfileDetails';
 import Validation from '../screens/validation/Validation';
+import Facecapture from '../screens/registration/FaceCapture'
 
 export type RootStackParamList = {
   Root:undefined;
@@ -12,6 +13,7 @@ export type RootStackParamList = {
   Registration: undefined;
   ProfileDetails:undefined;
   Validation:undefined;
+  Facecapture:undefined;
 }
 
 const StackNavigation = () => {
@@ -43,6 +45,11 @@ const StackNavigation = () => {
         options={{headerShown:false}}
         name="ProfileDetails"
         component={ProfileDetails}
+      />
+      <Stack.Screen
+        options={{headerShown:false}}
+        name="Facecapture"
+        component={Facecapture}
       />
        <Stack.Screen
         options={{headerShown:false}}

@@ -4,7 +4,7 @@ import { Colors } from '../../utils/Colors';
 import { IInputRenderer } from '../../interfaces/IInputRenderer';
 import { inputRendererStyles } from './InputRendererStyles';
 
-const InputRenderer = ({label , keyboardType = 'default'}:IInputRenderer) => {
+const InputRenderer = ({ label, value, onChangeText, keyboardType = 'default' }: IInputRenderer) => {
   return (
     <TextInput
       mode="outlined"
@@ -12,10 +12,12 @@ const InputRenderer = ({label , keyboardType = 'default'}:IInputRenderer) => {
       outlineColor={Colors.alto}
       activeOutlineColor={Colors.alizarinCrimson}
       textColor={Colors.black}
-      multiline={true}
+      multiline={false} // Set to false unless needed
       outlineStyle={inputRendererStyles.inputElement}
       contentStyle={inputRendererStyles.contentStyles}
       keyboardType={keyboardType}
+      value={value}
+      onChangeText={onChangeText} // ✅ Added this to update state
     />
   );
 };

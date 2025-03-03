@@ -29,4 +29,24 @@ export const profileDetailsStyles = StyleSheet.create({
         gap:10,
         marginTop:25,
     },
+    userImage: {
+        width: 150,
+        height: 150,
+        borderRadius: 75, // Circular image
+        marginTop: 10,
+        alignSelf: 'center',
+        borderWidth: 2,
+        borderColor: '#fff',
+      },
+      
+      matchedImage: {
+        width: 150,
+        height: 150,
+        borderRadius: 75, // Circular image
+        marginTop: 10,
+        alignSelf: 'center',
+        borderWidth: 2,
+        borderColor: 'green', // ✅ Highlight matched image
+      },
+      
 });

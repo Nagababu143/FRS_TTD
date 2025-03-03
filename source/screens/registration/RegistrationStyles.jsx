@@ -36,4 +36,31 @@ export const registrationStyles = StyleSheet.create({
     inputsCont:{
         gap:15,
     },
+    loaderOverlay: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        justifyContent: 'center', // ✅ Centered vertically
+        alignItems: 'center', // ✅ Centered horizontally
+        backgroundColor: 'rgba(0, 0, 0, 0.5)', // ✅ Slight dim effect
+        zIndex: 100, // ✅ Ensures it stays on top
+      },
+      
+      loaderBox: {
+        backgroundColor: 'rgba(0, 0, 0, 0.8)', // ✅ Dark overlay box
+        padding: 20,
+        borderRadius: 10,
+        alignItems: 'center',
+        elevation: 10, // ✅ Shadow effect
+      },
+      
+      loaderText: {
+        color: 'white',
+        marginTop: 10,
+        fontSize: 16,
+        fontWeight: 'bold',
+      },
+      
 });
