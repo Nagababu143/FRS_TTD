@@ -7,6 +7,7 @@ import CheckBox from '../../components/check-box/CheckBox';
 import AppButton from '../../components/app-button/AppButton';
 import { useRoute } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
+import ImageResizer from 'react-native-image-resizer';
 
 const Registration = () => {
   const route = useRoute();
@@ -21,53 +22,63 @@ const Registration = () => {
 
   // Handle form submission
   const registrationHandler = async () => {
-    if (!fullName || !aadharNumber || !phoneNumber) {
+    if (!fullName || !aadharNumber || !phoneNumber || !termsChecked) {
       Alert.alert('Error', 'All fields are required, including agreeing to terms & conditions.');
       return;
     }
-
+  
     setLoading(true); // ✅ Show Loader
-
-    const payload = {
-      fullName,
-      aadharNumber,
-      phoneNumber,
-      image: imageBuffer, // Base64 image buffer
-      type: "registration",
-    };
-
+  
     try {
+      let resizedUri = null;
+  
+      if (imageBuffer) {
+        // Resize the image to reduce size
+        const resizedImage = await ImageResizer.createResizedImage(imageBuffer, 800, 800, 'JPEG', 80);
+        resizedUri = resizedImage.uri;
+      }
+  
+      // Prepare FormData
+      const formData = new FormData();
+      formData.append('fullName', fullName);
+      formData.append('aadharNumber', aadharNumber);
+      formData.append('phoneNumber', phoneNumber);
+      formData.append('type', 'registration');
+  
+      if (resizedUri) {
+        formData.append('image', {
+          uri: resizedUri,
+          name: 'photo.jpg',
+          type: 'image/jpeg',
+        });
+      }
+  
+      // API Call
       const response = await fetch('https://yt0321nob3.execute-api.us-east-1.amazonaws.com/dev/TTD_FRS', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        headers: { 'Content-Type': 'multipart/form-data' },
+        body: formData,
       });
-    
-
+  
       const result = await response.json();
-      console.log("response",result)
+      console.log("API Response:", result);
       const responseBody = typeof result.body === "string" ? JSON.parse(result.body) : result.body;
-      console.log(responseBody)
-
+  
       if (result.statusCode === 200) {
         Alert.alert(
           "Success",
           responseBody.message || "Registration completed successfully!",
-          [{ 
-            text: "OK", 
-            onPress: () => navigation.navigate("ProfileDetails", { data: responseBody }) 
-          }]
+          [{ text: "OK", onPress: () => navigation.navigate("ProfileDetails", { data: responseBody }) }]
         );
       } else {
         Alert.alert(
           "Error",
           responseBody.message || "Something went wrong.",
-          [{ text: "OK", onPress: () => navigation.navigate("Landing") }] 
+          [{ text: "OK", onPress: () => navigation.navigate("Landing") }]
         );
       }
     } catch (error) {
       console.error("Error:", error);
-     // Alert.alert(JSON.stringify(error))
       Alert.alert("Error", "An unexpected error occurred.");
     } finally {
       setLoading(false); // ✅ Hide Loader
