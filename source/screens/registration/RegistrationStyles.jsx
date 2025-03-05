@@ -47,7 +47,6 @@ export const registrationStyles = StyleSheet.create({
         backgroundColor: 'rgba(0, 0, 0, 0.5)', // ✅ Slight dim effect
         zIndex: 100, // ✅ Ensures it stays on top
       },
-      
       loaderBox: {
         backgroundColor: 'rgba(0, 0, 0, 0.8)', // ✅ Dark overlay box
         padding: 20,
@@ -55,12 +54,10 @@ export const registrationStyles = StyleSheet.create({
         alignItems: 'center',
         elevation: 10, // ✅ Shadow effect
       },
-      
       loaderText: {
         color: 'white',
         marginTop: 10,
         fontSize: 16,
         fontWeight: 'bold',
       },
-      
 });

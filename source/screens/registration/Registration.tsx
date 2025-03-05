@@ -91,10 +91,10 @@ const Registration = () => {
         contentContainerStyle={registrationStyles.container}
         pointerEvents={loading ? 'none' : 'auto'} // ✅ Prevents user interaction
       >
-        <ImageBackground resizeMode="cover" style={registrationStyles.imgCont} source={require('../../assets/banners/registration_banner.png')}>
-          <Image style={registrationStyles.ttdLogo} source={require('../../assets/logos/ttd_logo.png')} />
+        <ImageBackground resizeMode="cover" style={registrationStyles.imgCont} source={require('../../assets/banners/frs_banner.png')}>
+          <Image style={registrationStyles.ttdLogo} source={require('../../assets/logos/scan_logo.png')} />
           <View style={registrationStyles.registerTextCont}>
-            <Text style={registrationStyles.registerText}>Get registered now</Text>
+            <Text style={registrationStyles.registerText}>Get register now</Text>
             <Text style={registrationStyles.registerDescription}>Create your profile to continue</Text>
           </View>
 
@@ -107,10 +107,10 @@ const Registration = () => {
             <CheckBox label="Agree terms & conditions" checked={termsChecked} setChecked={setTermsChecked} />
           </View>
 
-          <AppButton 
-            title="Register" 
-            appearance="gradient" 
-            onButtonPress={registrationHandler} 
+          <AppButton
+            title="Register"
+            appearance="gradient"
+            onButtonPress={registrationHandler}
             disabled={loading} // ✅ Button disabled while loading
           />
         </ImageBackground>

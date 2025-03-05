@@ -13,8 +13,8 @@ const CheckBox = ({label , checked , setChecked}:ICheckbox) => {
         onPress={() => {
           setChecked((prev)=>!prev);
         }}
-        uncheckedColor={Colors.alizarinCrimson}
-        color={Colors.alizarinCrimson}
+        uncheckedColor={Colors.fog}
+        color={Colors.royalBlue}
       />
       {label && <Text style={checkboxStyles.checkLabel}>{label}</Text>}
     </View>

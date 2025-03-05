@@ -20,7 +20,7 @@ export const landingStyles = StyleSheet.create({
     },
     scanMeText:{
         fontSize:24,
-        color:Colors.alizarinCrimson,
+        color:Colors.electricViolet,
         fontWeight:'600',
         textAlign:'center',
     },
@@ -32,7 +32,7 @@ export const landingStyles = StyleSheet.create({
     },
     frText:{
         fontSize:24,
-        color:Colors.black,
+        color:Colors.electricViolet,
         fontWeight:'600',
         textAlign:'center',
         marginTop:36,

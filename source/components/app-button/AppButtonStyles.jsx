@@ -17,16 +17,16 @@ const baseBtnText = {
 export const appButtonStyles = StyleSheet.create({
     defaultButton:{
         ...baseBtnCont,
-        borderColor:Colors.cinnabar,
-        backgroundColor:Colors.cinderella,
+        borderColor:Colors.royalBlue,
+        backgroundColor:Colors.fog,
     },
     defaultButtonText:{
         ...baseBtnText,
-        color:Colors.pomegranate,
+        color:Colors.royalBlue,
     },
     lgButton:{
         ...baseBtnCont,
-        borderColor:Colors.geraldine,
+        borderColor:Colors.portage,
     },
     lgButtonText:{
         ...baseBtnText,

@@ -23,9 +23,9 @@ const StackNavigation = () => {
     <Stack.Navigator
       initialRouteName="Landing"
       screenOptions={{
-        statusBarColor:Colors.cinnabar,
+        statusBarColor:Colors.portage,
         headerStyle: {
-          backgroundColor: Colors.cinnabar,
+          backgroundColor: Colors.portage,
         },
         headerTintColor: Colors.white,
         headerTitleAlign: 'center',

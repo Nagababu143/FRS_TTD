@@ -26,9 +26,9 @@ const ProfileDetails = () => {
       <ImageBackground
         resizeMode="cover"
         style={profileDetailsStyles.imgCont}
-        source={require('../../assets/banners/registration_banner.png')}
+        source={require('../../assets/banners/frs_banner.png')}
       >
-        <Image style={profileDetailsStyles.ttdLogo} source={require('../../assets/logos/ttd_logo.png')} />
+        <Image style={profileDetailsStyles.ttdLogo} source={require('../../assets/logos/scan_logo.png')} />
 
         <View>
           <Text style={profileDetailsStyles.mainText}>Profile Validation Details</Text>

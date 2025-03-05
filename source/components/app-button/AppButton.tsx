@@ -5,7 +5,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { Colors } from '../../utils/Colors';
 import { appButtonStyles } from './AppButtonStyles';
 
-const AppButton = ({title , appearance = 'default' , gradients = [Colors.goldenGrass,Colors.alizarinCrimson] , onButtonPress}:IAppButton) => {
+const AppButton = ({title , appearance = 'default' , gradients = [Colors.royalBlue,Colors.razzleDazzleRose] , onButtonPress}:IAppButton) => {
   return (
     <>
     {
