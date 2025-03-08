@@ -8,7 +8,7 @@ const Landing = () => {
   const navigation = useNavigation();
   return (
     <SafeAreaView style={landingStyles.container}>
-      <ImageBackground source={require('../../assets/banners/frs_banner.png')} resizeMode="cover" style={landingStyles.imgCont}>
+      <ImageBackground source={require('../../assets/banners/ttd_banner.png')} resizeMode="cover" style={landingStyles.imgCont}>
         <Image style={landingStyles.ttdLogo} source={require('../../assets/logos/ttd_logo.png')} resizeMode="cover" />
         <View>
           <View>

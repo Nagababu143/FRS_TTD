@@ -10,9 +10,4 @@ export const Colors = {
     concrete:'#F3F3F3',
     alto:'#DDDDDD',
     gray:'#909090',
-    royalBlue:'#7440EE',
-    fog:'#DACBFF',
-    razzleDazzleRose:'#FF35E3',
-    portage:'#A684F8',
-    electricViolet:'#7842F7',
 };
