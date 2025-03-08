@@ -16,12 +16,12 @@ const Facecapture = () => {
   const [loading, setLoading] = useState(false); // Loading state
 
   console.log("Type:", type);
-  const requestStoragePermission = async () => {
-    const result = await request(PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE);
-    if (result !== RESULTS.GRANTED) {
-      Alert.alert("Permission Denied", "Storage access is required to process images.");
-    }
-  };
+  // const requestStoragePermission = async () => {
+  //   const result = await request(PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE);
+  //   if (result !== RESULTS.GRANTED) {
+  //     Alert.alert("Permission Denied", "Storage access is required to process images.");
+  //   }
+  // };
 
   useEffect(() => {
 
@@ -38,13 +38,13 @@ const Facecapture = () => {
   }, [hasPermission, requestPermission]);
 
   const captureImage = async () => {
-    if (!camera.current || loading) return; // Prevent multiple clicks
-  
+   // if (!camera.current || loading) return; // Prevent multiple clicks
     setLoading(true); // Start loading
   
     try {
-      const photo = await camera.current.takePhoto({}); // Capture photo
-      console.log("photo",photo)
+      console.log("tacking photo")
+      const photo = await camera.current.takePhoto({});
+      console.log("photo ",photo)
       
       const imagePath = photo.path.trim(); // Get file path
       console.log("imagePath",imagePath)

@@ -8,10 +8,11 @@ import AppButton from '../../components/app-button/AppButton';
 import { useRoute } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 import ImageResizer from 'react-native-image-resizer';
+import RNFS from 'react-native-fs';
 
 const Registration = () => {
   const route = useRoute();
-  const { imageBuffer } = route.params || {}; // Get imageBuffer from navigation params
+  let { imageBuffer } = route.params || {}; // Get imageBuffer from navigation params
 
   const navigation = useNavigation();
   const [fullName, setFullName] = useState('');
@@ -21,6 +22,14 @@ const Registration = () => {
   const [loading, setLoading] = useState(false); // ✅ Middle Loader state
 
   // Handle form submission
+
+  const base64ToTempFile = async (base64Data) => {
+    const path = `${RNFS.CachesDirectoryPath}/temp_image.jpg`;
+    await RNFS.writeFile(path, base64Data, 'base64');
+    return `file://${path}`;
+  };
+
+
   const registrationHandler = async () => {
     if (!fullName || !aadharNumber || !phoneNumber || !termsChecked) {
       Alert.alert('Error', 'All fields are required, including agreeing to terms & conditions.');
@@ -31,6 +40,17 @@ const Registration = () => {
   
     try {
       let resizedUri = null;
+
+      if (imageBuffer) {
+        if (imageBuffer.startsWith('file://')) {
+          console.log("File URI received:", imageBuffer);
+        } else if (imageBuffer.startsWith('/')) {
+          imageBuffer = `file://${imageBuffer}`; // Fix missing file:// prefix
+        } else {
+          console.log("Converting Base64 to File...");
+          imageBuffer = await base64ToTempFile(imageBuffer);
+        }
+      }
   
       if (imageBuffer) {
         // Resize the image to reduce size
